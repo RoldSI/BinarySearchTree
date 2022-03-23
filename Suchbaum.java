@@ -62,7 +62,7 @@ public class Suchbaum
         if (pBaum.getLeftTree().isEmpty()==false) {
             ret = ret + this.inOrder(pBaum.getLeftTree())+ " ";
         }
-        ret = ret + pBaum.getContent() + " ";
+        ret = ret + Integer.toString(pBaum.getContent().getWert()) + " ";
         if (pBaum.getRightTree().isEmpty()==false) {
             ret = ret + this.inOrder(pBaum.getRightTree())+ " ";
         }
@@ -75,12 +75,12 @@ public class Suchbaum
      */
     public String preOrder(BinarySearchTree<Entry> pBaum){
         String ret = "";
-        ret = ret + pBaum.getContent() + " ";
+        ret = ret + Integer.toString(pBaum.getContent().getWert()) + " ";
         if (pBaum.getLeftTree().isEmpty()==false) {
-            ret = ret + this.inOrder(pBaum.getLeftTree())+ " ";
+            ret = ret + this.preOrder(pBaum.getLeftTree())+ " ";
         }
         if (pBaum.getRightTree().isEmpty()==false) {
-            ret = ret + this.inOrder(pBaum.getRightTree())+ " ";
+            ret = ret + this.preOrder(pBaum.getRightTree())+ " ";
         }
         
         return ret;
@@ -92,10 +92,10 @@ public class Suchbaum
     public String postOrder(BinarySearchTree<Entry> pBaum){
         String ret = "";
         if (pBaum.getLeftTree().isEmpty()==false) {
-            ret = ret + this.inOrder(pBaum.getLeftTree())+ " ";
+            ret = ret + this.postOrder(pBaum.getLeftTree())+ " ";
         }
         if (pBaum.getRightTree().isEmpty()==false) {
-            ret = ret + this.inOrder(pBaum.getRightTree())+ " ";
+            ret = ret + this.postOrder(pBaum.getRightTree())+ " ";
         }
         ret = ret + Integer.toString(pBaum.getContent().getWert()) + " ";
         
